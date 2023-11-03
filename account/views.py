@@ -80,7 +80,8 @@ class UserProfileView(LoginRequiredMixin, View):
         relation = Relation.objects.filter(from_user=request.user, to_user=user)
         if relation.exists():
             is_following = True
-        return render(request, 'account/profile.html', {'user': user, 'posts': posts, 'is_following':is_following})
+        return render(request, 'account/profile.html', {'user': user, 'posts': posts,
+                                                        'is_following': is_following})
 
 
 class UserPasswordResetView(auth_views.PasswordResetView):
